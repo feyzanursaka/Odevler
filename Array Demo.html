@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Array Methods </title>
+</head>
+
+<script>
+"use strict";
+function modify() {
+    let i = Number(ie.value); let x = xe.value; 
+    xe.value = a[i]; a[i] = x; reportA("a["+i+"] = "+x);
+}
+function remove() {
+    let i = Number(ie.value);
+    xe.value = a[i]; a.splice(i, 1); reportA("remove "+i);
+}
+function push() {
+    let x = xe.value; let i = Number(ie.value);
+    a.push(x); reportA("push "+x);
+}
+function popA() {
+    xe.value = a.pop(); reportA("pop ");
+}
+function reportA(str) {
+    outA.innerText = "a = [ "+ a.join(", ")+" ] "+a.length;
+    console.log(str);
+
+
+
+}function ilkEleman(str) {
+  
+xe.value =a[0];
+outA.innerText=xe.value;
+
+}
+function change(str) {
+  var t ;
+t=a[0];
+a[0]=a[1];
+a[1]=t;
+reportA(str);
+
+
+
+
+}function merhaba(str) {
+ var i;
+for (i = 0; i < a.length; i++) { 
+    a[i]=" merhaba ";
+}
+reportA(str);
+
+}
+
+</script>
+
+<body>
+<h2 id=title></h2>
+
+<p id=outA></p>
+<p id=outB></p>
+
+<p>
+i = <input type=number id=ie value=1  style="width:40px"> &emsp; 
+x = <input type=text   id=xe value=53 style="width:99px"> 
+</p><p>
+<input type=button value="a[i]=x"  onClick="modify()">
+<input type=button value="remove"  onClick="remove()">
+<input type=button value="push x"  onClick="push()">
+<input type=button value="x=pop"   onClick="popA()">
+<input type=button value="x=pop"   onClick="popA()">
+<input type=button value="ilkEleman"  onClick="ilkEleman()">
+<input type=button value="ilk iki terimi yer değistir"  onClick="change()">
+<input type=button value="her elemana merhaba yazdır"  onClick="merhaba()">
+</p>
+
+<hr />
+<p>Ref: 
+<a href="https://www.w3schools.com/js/js_arrays.asp" target="ExternalDocument">Array Examples</a></p>
+<p>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections" target="ExternalDocument">Set Examples</a>
+</p>
+
+<script>
+    title.innerText = document.title;
+    const a = [234, "abc", "son"];  //initially
+   
+    reportA("start");
+</script>
+
+</body>
+</html>
