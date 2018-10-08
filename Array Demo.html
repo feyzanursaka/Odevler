@@ -3,91 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Array Methods </title>
+    <title> Add Course </title>
 </head>
 
 <script>
 "use strict";
-function modify() {
-    let i = Number(ie.value); let x = xe.value; 
-    xe.value = a[i]; a[i] = x; reportA("a["+i+"] = "+x);
+function add() {
+	let name= n.value; let midterm =  Number( m.value); let fnl = Number( f.value);
+	
+	
+	a.push(name);
+	b.push(midterm);
+	c.push(fnl);
+	
 }
-function remove() {
-    let i = Number(ie.value);
-    xe.value = a[i]; a.splice(i, 1); reportA("remove "+i);
+function print() {
+outA.innerText=" ";
+	for (let i = 0  ; i < a.length ; i++){
+	outA.innerText += a[i]+"\t"+ b[i] +"\t"+c[i]+"\n";  
+	}
 }
-function push() {
-    let x = xe.value; let i = Number(ie.value);
-    a.push(x); reportA("push "+x);
-}
-function popA() {
-    xe.value = a.pop(); reportA("pop ");
-}
-function reportA(str) {
-    outA.innerText = "a = [ "+ a.join(", ")+" ] "+a.length;
-    console.log(str);
-
-
-
-}function ilkEleman(str) {
-  
-xe.value =a[0];
-outA.innerText=xe.value;
-
-}
-function change(str) {
-  var t ;
-t=a[0];
-a[0]=a[1];
-a[1]=t;
-reportA(str);
-
-
-
-
-}function merhaba(str) {
- var i;
-for (i = 0; i < a.length; i++) { 
-    a[i]=" merhaba ";
-}
-reportA(str);
-
-}
-
+ function avg(){
+ outB.innerText=" ";
+ let avg;
+ for (let i = 0  ; i < a.length ; i++){
+ avg = (b[i] + c[i])/2;
+	outB.innerText += a[i]+"\t"+ avg+"\n";  
+	}
+ }
+ function Max(){
+ 
+  outC.innerText=" ";
+ let maxavg= (b[0] + c[0])/ 2; let avg; let name= a[0];
+	 for (let i = 0  ; i < a.length ; i++){
+	 avg = (b[i] + c[i])/2;
+		 if (maxavg<avg){
+		 maxavg = avg;
+		 name = a[i];
+		 }
+	}
+	outC.innerText = name +"\t"+maxavg;  
+ }
+ 
+ 
 </script>
 
-<body>
+<body style="background-color:pink ;"/>
 <h2 id=title></h2>
 
-<p id=outA></p>
-<p id=outB></p>
+<p style="color:purple;"/> 
+Name  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type=text id=n value="" style="width:115px; box-sizing: border-box; margin: 2px;"/><br/> 
+Midterm &nbsp;                       <input type=number id=m value="" style="width:115px; box-sizing: border-box; margin: 2px;"/><br/>  
+Final  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type=number id=f value="" style="width:115px; box-sizing: border-box; margin: 2px;"/><br/> 
+</p>
 
 <p>
-i = <input type=number id=ie value=1  style="width:40px"> &emsp; 
-x = <input type=text   id=xe value=53 style="width:99px"> 
-</p><p>
-<input type=button value="a[i]=x"  onClick="modify()">
-<input type=button value="remove"  onClick="remove()">
-<input type=button value="push x"  onClick="push()">
-<input type=button value="x=pop"   onClick="popA()">
-<input type=button value="x=pop"   onClick="popA()">
-<input type=button value="ilkEleman"  onClick="ilkEleman()">
-<input type=button value="ilk iki terimi yer değistir"  onClick="change()">
-<input type=button value="her elemana merhaba yazdır"  onClick="merhaba()">
+<input type=button value="Add"  onClick="add()" style=" background-color:yellow; box-sizing: border-box; margin: 2px; width:50px"/><br/>
+<input type=button value="Print"  onClick="print()"style=" background-color:yellow; box-sizing: border-box; margin: 2px; width:50px ">&emsp;
+<input type=button value="Avg"  onClick="avg()"style="background-color:yellow; box-sizing: border-box; margin: 2px; width:50px ">
+<input type=button value="Max"   onClick="Max()"style=" background-color:yellow; box-sizing: border-box; margin: 2px; width:50px ">
 </p>
 
 <hr />
-<p>Ref: 
-<a href="https://www.w3schools.com/js/js_arrays.asp" target="ExternalDocument">Array Examples</a></p>
-<p>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections" target="ExternalDocument">Set Examples</a>
-</p>
+<h4>Name &emsp; Midterm &emsp; Final</h4>
+<p id=outA></p>
+
+<hr/>
+<h4>Name &emsp; Avarage</h4>
+<p id=outB></p>
+
+<hr />
+<h4>Name &emsp; Max</h4>
+<p id=outC></p>
+
 
 <script>
     title.innerText = document.title;
-    const a = [234, "abc", "son"];  //initially
-   
-    reportA("start");
+    
+
+	const a = [];  
+	const b = [];  
+	const c = [];  
+    
 </script>
 
 </body>
