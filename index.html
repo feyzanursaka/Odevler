@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://maeyler.github.io/JS/sss/inspector.css" 
+          rel="stylesheet" media="all">
+    <script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
+    <script src="c4_data.js"></script>
+    <script src="c6_object.js"></script>
+    <script src="../exam/Quiz.js"></script>
+    <script src="async.js"></script>
+    <script src="Database.js"></script>
+    <title>CW4-Feyza Nur SAKA</title>
+</head>
+
+<body>
+<p><b id=docName></b> &nbsp;
+
+</p>
+
+<script>
+"use strict";
+
+ class Point {
+        constructor(x,y){
+            this.x=x;
+            this.y=y;
+        }
+        toString(){
+            return "("+this.x+","+this.y+")";
+        }
+    }
+    class Point3D extends Point {
+        constructor(x,y,z){
+           super(x,y);
+           this.z = z;
+        }
+        toString(){
+            return "("+this.x+","+this.y+","+this.z+")";
+        }
+    }
+    class Distance{
+      constructor(km=0) {
+          this.km = Math.round(km);
+        }
+        get mile() {
+          return Math.round(this.km * 0.621371192);
+        }
+        set mile(value=32) {
+          this.km = Math.round(this.mile * 1.609344);
+        }
+        toString(){
+            return this.km+" km";
+        }
+ }
+
+class CW4 extends Menu{
+      constructor(){
+        super();
+        this.student= new Student(1521221051,"Feyza",2.50);
+        this.course = new Course("BLM305","15:00","24.10.2018");
+        this.distance = new Distance(200)
+        this.point = new Point(1,2);
+        this.point3D= new Point3D(1,2,3);
+        
+        
+      }
+}
+
+
+function init() {
+      let menu;
+      menu = new CW4(); //global
+      display(menu);
+}
+    docName.innerText = "Inspector "+VERSION;
+    try {
+        inspect(document.body, init); //makes the table
+    } catch(e) {
+        reportError(e);
+    }
+</script>
+
+<p><input type=file multiple onChange='fileSelect(this)' />
+</p><p>
+
+<a href="https://feyzanursaka.github.io/Odevler/HW1.html" rel="nofollow">HW1</a>&emsp;
+<a href="https://feyzanursaka.github.io/Odevler/work/inspector.html" rel="nofollow">CW3</a>&emsp;
+<a href="https://feyzanursaka.github.io/Odevler/CW3.png" rel="nofollow" rel="nofollow">CW3.png
+
+</p>
+<pre id=disp1></pre>
+<img id=disp2 />
+
+</body>
+</html>
