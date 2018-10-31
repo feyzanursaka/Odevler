@@ -1,0 +1,121 @@
+<html>
+<style>
+   
+	body{
+	color: orange;
+	background-image:cover;
+	background-image: url("b.png");
+	text-align: center;
+	margin-top: 15%;
+	font-size:28px;
+	border-radius: 25px;
+	}
+	body .foot{	
+	width: 100%;
+	height: 15px;
+	background-color: #8FBC8F;
+	text-align: center;
+	position: fixed;
+	bottom: 0px;
+	font-family: arial;
+	font-size: 12px;
+}
+  </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Comparing Files</title>
+</head>
+
+<script>
+"use strict";
+var texts = [];
+function hide() {
+    state.style.visibility = "hidden";
+}
+function show(v) {
+    state.value = v; state.style.visibility = "";
+}
+function report(t, n) {
+    show("OK"); setTimeout(hide, 1000);
+    out.innerText = t;
+    console.log(n? n : t);
+}
+function readText() {
+    show("FT"); 
+    fetch(url.value)
+      .then(r => r.text()) 
+      .then(t => report(t, t.length+" chars"));  
+}
+function readBlob() {
+    show("FB"); 
+    fetch(url.value)
+      .then(r => r.blob())  
+      .then(b => report(b.size+" bytes"));
+}
+function issameExtension(file) {	
+    console.assert(file instanceof File);
+    return  file.name.endsWith(".java")
+			|| file.name.endsWith(".md")
+			|| file.name.endsWith(".js") 
+			|| file.type.startsWith("text");
+}
+function read(file){
+	var reader = new FileReader();
+	reader.onload = function(evt) { 
+            const a = evt.target.result.replace(/</g, "&lt;");
+            out.innerHTML = "<pre>"+a+"</pre>";
+            console.log(a);
+			texts.push(a);
+			console.log(texts)
+			};
+        reader.readAsText(file);
+}
+function fileSelect(t) { 
+    console.assert(t == button);	
+		for(let text of t.files){
+		read(text)
+		}
+}
+function compare(){
+	let str
+	let counter=0;
+	for(let a of texts){
+		counter=0
+		for(let b of texts){
+			if(a==b){
+				counter++;
+				str=a;
+				}
+		}
+		if(counter>1){
+	
+			break;
+		}	
+}
+if(counter>1)
+	msg.innerText=str+"same files";
+	
+else
+	msg.innerText="different files";
+}
+</script>
+
+<body>
+
+<h2 id=title></h2>
+
+<input type=text id=url value="test.txt">
+<input type=button style=" background-color:#8FBC8F;" value="compare" onClick="compare()">
+<pre id=out></pre>
+<pre id=msg></pre>
+<input type="file" id="button" onchange="fileSelect(this)"multiple>
+<div class="foot">Referance <a href="https://github.com/feyzanursaka">Feyza Nur SAKA</div>
+<pre id=sample></pre>
+<pre id=out2></pre>
+<script>
+    title.innerText = document.title;  
+</script>
+
+</body>
+</html>
