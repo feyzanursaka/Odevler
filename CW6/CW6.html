@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+  html{
+		background-image:url("black.jpg");
+		background-position: center; 
+    }
+	body{
+		color:#f44259;
+		text-align: center;
+		margin-top: 4%;
+		font-size:20px;
+		font-weight:bold;
+	}
+	body .foot{	
+		height: 10px;
+		width: 100%;
+		width:left-side;
+		fixed:left-side;
+		background-color: #f44259;
+		text-align: center;
+		position: fixed;
+		bottom: 0px;
+		font-family: arial;
+		font-size: 10px;
+	}
+	
+	
+	
+
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="CW6.js"></script>
+    <title style=" color:white;">Calculate Map and Array Runtime </title>
+	<hr />
+  <script>
+  const array = [], map = new Map();
+  const url = "https://feyzanursaka.github.io/Odevler/";
+  function readData(file) {
+      console.log("readData "+file);
+      fetch(url+file)
+          .then(r => r.text(), console.log)
+          .then(addStudents, console.log);
+  }
+  function parseStudent(line) {
+      let b = line.split("\t");
+      let id = b[0], name = b[1], gpa = b[2];
+      let std = new Student(id, name, gpa);
+      let list = [];
+      for (let i=3; i<b.length; i++)
+          list.push(b[i]);
+		  std.courses = list
+      return std
+  }
+  function addStudents(txt) {
+      let msg = "\nData contains ";
+      msg += txt.length+" chars, ";
+      let a = txt.split("\n");
+      msg += a.length+" lines \n";
+      for (let s of a) {
+        let std = parseStudent(s);
+        array.push(std.id); map.set(std.id,std);
+      }
+      msg += array.length+" students, "
+      out.innerText += msg
+  }
+  function calculateRuntime() {
+  
+	  let totalMapTime = 0;
+      let totalArayTime = 0;
+	  
+      let totalNumber_foundMap = 0;
+      let totalNumber_foundArray = 0;
+      
+	  
+      for (var i = 0; i < 10000; i++) {
+	
+        let id = "215170"+String(Math.random()).substring(2,5);
+		
+        let mapTime = performance.now();
+		let arrayTime = performance.now();
+		
+		if(map.has(id)){
+            totalNumber_foundMap++;
+        }
+        totalMapTime += performance.now() - mapTime;
+		
+        if(array.includes(id)){
+            totalNumber_foundArray++;
+        }
+        totalArayTime += performance.now() - arrayTime;		   
+        
+      }
+      let s = "Array Time : " + totalArayTime.toPrecision(3) + " ---> Found :" + totalNumber_foundArray
+             +"\nMap Time: " + totalMapTime.toPrecision(3) + " ---> Found :" + totalNumber_foundMap;
+			 
+      out.innerText += "\n" + s;
+  }
+  </script>
+</head>
+
+<body style=" background-color:#42f4bf;">
+<h2 id=title></h2>
+<button onClick='calculateRuntime()'style=" background-color:#f44259; ">Calculate Runtime</button>
+<hr />
+<p id=out>Map and Array Results</p>
+<hr />
+
+<script>
+    readData("Students.txt");
+    title.innerText = document.title;
+    sample.innerText = calculateRuntime+"\n"+readData;
+</script>
+
+
+</body>
+</html>
