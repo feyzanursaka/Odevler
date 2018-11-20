@@ -46,8 +46,8 @@ window.addEventListener("mousemove",(e) => {
 			element.style.backgroundColor = `rgb(${r1},${r2},${r3})`;//r lere göre renk üret
 			let anim = document.querySelector(".anim");
 			for (let i in [1,2,3,12,1,1,1,1,1,]) {
-				let randomLeft = Math.floor(Math.random());
-				let randomTop = Math.floor(Math.random() );
+				let randomLeft = Math.floor(Math.random()*10);
+				let randomTop = Math.floor(Math.random()*10);
 				element.style.left = e.x + randomLeft+'px';
 				element.style.top = e.y + randomTop+'px';
 				anim.appendChild(element);
