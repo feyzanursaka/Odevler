@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<style> 
+body {
+  font-family: "Fira Sans";
+  font-weight: 100;
+  background: #000;
+  overflow: hidden;
+}
+p {
+  font-weight: 100;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+span {position: absolute;height: 20px;width: 20px;border-radius: 50%;transition: all 0.3s;}
+span.type1 {width: 50px;height: 22px;}
+span.type2 {width: 20px;height: 5px;}
+span.type3 {width: 10px;height: 76px;}
+
+</style>
+</head>
+<body>
+
+
+<script>
+const 
+  t2 = { transform: ["rotate(0)", "rotate(90deg)", "rotate(0)"] },
+  t3 = { background: ["yellow", "cyan", "magenta", "yellow"] },
+  t4 = { fontSize: ["100%", "150%", "100%", "75%", "100%"] };
+  
+window.addEventListener("mousemove",(e) => {
+			let r1 = Math.floor(Math.random() * 255);
+			let r2 = Math.floor(Math.random() * 255);
+			let r3 = Math.floor(Math.random() * 56);
+			let type = Math.floor(Math.random() * 4);
+			let minusOrPlus = Math.floor(Math.random() * 3);//yukarı aşağı
+			let element = document.createElement("span");
+			element.classList.add(`type${type}`);
+			element.style.opacity = "0";
+			element.style.backgroundColor = `rgb(${r1},${r2},${r3})`;//r lere göre renk üret
+			let anim = document.querySelector(".anim");
+			for (let i in [1,2,3,12,1,1,1,1,1,]) {
+				let randomLeft = Math.floor(Math.random());
+				let randomTop = Math.floor(Math.random() );
+				element.style.left = e.x + randomLeft+'px';
+				element.style.top = e.y + randomTop+'px';
+				anim.appendChild(element);
+			
+			}
+			element.animate([
+		        { transform: 'translateY(0) scale(1)',opacity: '1'},//opaklık 1
+		        { transform: `translateY(${ (minusOrPlus == 0) ? "-" : "+" }${r1}px) ` + 'scale(1.5)',opacity: '0'},//aşağı ya da yukarı gitmesini - veya + ya göre belirler, opaklığı 1 den 0 a doğru indirir.
+			],{
+				duration: 1500,
+				iterations: 1,
+			});
+		})
+
+
+</script>
+
+
+	<div class="app-container">
+		
+		<p>
+			<button id="btn" onClick=" this.animate(t2, 5000); this.animate(t3, 6000); this.animate(t4, 6000); iterations:infinity">FEYZA NUR SAKA</button>
+		</p>
+			
+		
+		<div class="anim" ></div>
+	</div>
+
+</body>
+</html>
