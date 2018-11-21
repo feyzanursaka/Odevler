@@ -9,3 +9,5 @@
 <a href="https://feyzanursaka.github.io/Odevler/CW6/CW6.html" rel="nofollow">CW6.html</a><br>
 <a href="https://feyzanursaka.github.io/Odevler/HW3.html" rel="nofollow">HW3</a><br>
 <a href="https://feyzanursaka.github.io/Odevler/CW7/index.html" rel="nofollow">CW7</a><br>
+
+<a href="https://feyzanursaka.github.io/Odevler/CW7.PNG" rel="nofollow">CW7.PNG</a><br>
