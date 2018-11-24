@@ -1,3 +1,4 @@
-SORU 1
-SORU 2
-SORU 3
+1 soru1 cevapa cevapb cevapc
+2 soru2 cevapa cevapb cevapc
+3 soru3 cevapa cevapb cevapc
+4 soru4 cevapa cevapb cevapc
