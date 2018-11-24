@@ -1,4 +1,4 @@
-1 soru1 dogrucevap cevapa cevapb cevapc
-2 soru2 dogrucevap cevapa cevapb cevapc
-3 soru3 dogrucevap cevapa cevapb cevapc
-4 soru4 dogrucevap cevapa cevapb cevapc
+What is 10 + 4? 12 4 16 B
+What is 20 - 9? 7 13 11 C
+What is 7 x 3? 21 24 25 A
+What is 8 / 2? 10 2 4 C 
