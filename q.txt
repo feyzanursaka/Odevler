@@ -1,0 +1,4 @@
+SORU 1 ?	12	4	16	B
+SORU 1 ?	7 	13 	11 	C
+SORU 1 ? 	21 	24 	25 	A
+SORU 1 ? 	10 	2 	4 	C 
