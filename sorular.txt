@@ -1,4 +1,4 @@
-1 soru1 cevapa cevapb cevapc
-2 soru2 cevapa cevapb cevapc
-3 soru3 cevapa cevapb cevapc
-4 soru4 cevapa cevapb cevapc
+1 soru1 dogrucevap cevapa cevapb cevapc
+2 soru2 dogrucevap cevapa cevapb cevapc
+3 soru3 dogrucevap cevapa cevapb cevapc
+4 soru4 dogrucevap cevapa cevapb cevapc
