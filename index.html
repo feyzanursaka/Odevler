@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<style>
+  <style>
 html{
-margin-top: 7%;
+margin-top: 1%;
 text-align:center;
 background:black;
 color:white;
 }
 h1{
-color:#80ffff;
+color:#99ddff;
 }
 h2{
 color:pink;
 }
 a{
-color:#ffffcc;
-}
-p{
-color:white;
+color:#99ddff;
 }
 div#test{ border:#fff 1px solid; padding:1px 9px 15px 9px; }
 span {position: absolute;height: 5px;width: 2px;border-radius: 50%;transition: all 0.3s;}
@@ -37,7 +34,7 @@ span.type3 {width: 1px;height: 3px;}
       }
   </script>
     <meta charset="utf-8">
-    <link rel="icon" href="icn.ico">
+    <link rel="icon" href="my_icon.ico">
     <title>Index</title>
   </head>
   <script>
@@ -50,7 +47,7 @@ span.type3 {width: 1px;height: 3px;}
 			element.style.opacity = "0";
 			element.style.backgroundColor = `rgb(255, 255, 255)`;//r lere göre renk üret
 			let anim = document.querySelector(".anim");
-			for (let i in [1]) {
+			for (let i in [1,2,3]) {
 				let randomLeft = Math.floor(Math.random()*90);
 				let randomTop = Math.floor(Math.random()*90 );
 				element.style.left = e.x + randomLeft+'px';
@@ -69,25 +66,23 @@ span.type3 {width: 1px;height: 3px;}
 </script>
 <body>
     <h1>My Home Page</h1>
-    <br>
+	<br>
 	<div id=test>
     <h2>Class Works:</h2>
-    <br>
     <p>Objects and Arrays --> <a href="https://feyzanursaka.github.io/Odevler/work/inspector.html">CW3</a>
     <br>
-    Asynchron operations --> <a href="https://feyzanursaka.github.io/Odevler/CW4.html">CW4</a>
+    <p>Asynchron operations --> <a href="https://feyzanursaka.github.io/Odevler/CW4.html">CW4</a>
     <br>
-    File operations --> <a href="https://feyzanursaka.github.io/Odevler/CW5/CW5.html">CW5</a>
+    <p>File operations --> <a href="https://feyzanursaka.github.io/Odevler/CW5/CW5.html">CW5</a>
     <br>
-    Animation --> <a href="https://feyzanursaka.github.io/Odevler/CW6/CW6.html">CW6</a>
+    <p>Animation --> <a href="https://feyzanursaka.github.io/Odevler/CW6/CW6.html">CW6</a>
     <br>
-    DOM and PWA --> <a href="https://feyzanursaka.github.io/Odevler/CW7/index.html">CW7</a></p>
+    <p>DOM and PWA --> <a href="https://feyzanursaka.github.io/Odevler/CW7/index.html">CW7</a></p>
     <br>
     </div>
     <br><br>
     <div id=test>
     <h2>Homeworks:</h2>
-    <br>
     <p>Course data --> <a href="https://feyzanursaka.github.io/Odevler/HW1.html">HW1</a>
     <br>
     <p>Student Database --> <a href="https://feyzanursaka.github.io/Odevler/HW2/database.html">HW2</a>
