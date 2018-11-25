@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <style>
+div#test{ border:#000 1px solid; padding:1px 4px 4px 4px; }
+span {position: absolute;height: 5px;width: 2px;border-radius: 50%;transition: all 0.3s;}
+span.type1 {width: 1px;height: 2px;}
+span.type2 {width: 1px;height: 5px;}
+span.type3 {width: 1px;height: 3px;}
+</style>
   <head>
     <link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,14 +22,44 @@
     <link rel="icon" href="my_icon.ico">
     <title>Index</title>
   </head>
+  </script>
+  window.addEventListener("mousemove",(e) => {
+			let r1 = Math.floor(Math.random() * 225);
+			let r2 = Math.floor(Math.random() * 15);
+			let r3 = Math.floor(Math.random() * 56);
+			let type = Math.floor(Math.random() * 3);
+			let minusOrPlus = Math.floor(Math.random() * 99);//yukarı aşağı
+			let element = document.createElement("span");
+			element.classList.add(`type${type}`);
+			element.style.opacity = "0";
+			element.style.backgroundColor = `rgb(${r1},${r2},${r3})`;//r lere göre renk üret
+			let anim = document.querySelector(".anim");
+			for (let i in [1,2,3,12,1,1,1,1,1,]) {
+				let randomLeft = Math.floor(Math.random()*60);
+				let randomTop = Math.floor(Math.random()*60 );
+				element.style.left = e.x + randomLeft+'px';
+				element.style.top = e.y + randomTop+'px';
+				anim.appendChild(element);
+			
+			}
+			element.animate([
+		        { transform: 'translateY(0) scale(1)',opacity: '1'},//opaklık 1
+		        { transform: `translateY(${ (minusOrPlus == 0) ? "-" : "+" }${r1}px) ` + 'scale(1.5)',opacity: '0'},//aşağı ya da yukarı gitmesini - veya + ya göre belirler, opaklığı 1 den 0 a doğru indirir.
+			],{
+				duration: 1500,
+				iterations: 1,
+			});
+		})
+</script>
   <body>
+    <div class="anim" ></div>
     <b>My PWA Homework Page v1.3:</b>
     <br>
     <a href="https://https://github.com/feyzanursaka/Odevler/index.html">Codes of my repo</a>
     <br>
     <hr>
     <br>
-    Class Works:
+    <h1>Class Works:</h1>
     <hr>
     <a href="https://feyzanursaka.github.io/Odevler/work/inspector.html">CW3</a>
     <br>
@@ -35,7 +72,7 @@
     <a href="https://feyzanursaka.github.io/Odevler/CW7/index.html">CW7</a>
     <br>
 
-    Homeworks:
+    <h1>Homeworks:</h1>
     <hr>
     <a href="https://feyzanursaka.github.io/Odevler/HW1.html">HW1</a>
     <br>
