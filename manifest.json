@@ -1,0 +1,13 @@
+{
+  "name": "Advanced PWA",
+  "start_url": "/Odevler/index.html",
+  "display": "standalone",
+  "background_color": "purple",
+  "icons": [
+    {
+      "src": "icn.png",
+      "sizes": "2366x1182",
+      "type": "image/png"
+    }
+  ]
+}
