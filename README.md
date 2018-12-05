@@ -1,8 +1,10 @@
 # Advanced Programming 
 <h4>HOMEWORKS</h4>
-<a href="https://feyzanursaka.github.io/Odevler/HW1.html" rel="nofollow">Array</a>" - HW1"<br>
-"HW2 - "<a href="https://feyzanursaka.github.io/Odevler/HW2/database.html" rel="nofollow">Read File</a><br>
-"HW3 - "<a href="https://feyzanursaka.github.io/Odevler/HW3.html" rel="nofollow">Animation</a><br>
+<ul>
+  <li><a href="https://feyzanursaka.github.io/Odevler/HW1.html" rel="nofollow">Array</a>" - HW1"</li>
+  <li>"HW2 - "<a href="https://feyzanursaka.github.io/Odevler/HW2/database.html" rel="nofollow">Read File</a></li>
+  <li>"HW3 - "<a href="https://feyzanursaka.github.io/Odevler/HW3.html" rel="nofollow">Animation</a></li>
+</ul>
 <h4>CLASS WORKS</h4>
 "CW3 - "<a href="https://feyzanursaka.github.io/Odevler/work/inspector.html" rel="nofollow">Objects</a><br>
 "HW4 - "<a href="https://feyzanursaka.github.io/Odevler/CW4.html" rel="nofollow">Class</a><br>
