@@ -1,5 +1,4 @@
 # Odevler
-<a href="https://feyzanursaka.github.io/Odevler/index.html" rel="nofollow">My Homepage</a><br>
 <h2>HOMEWORKS</h2>
 <a href="https://feyzanursaka.github.io/Odevler/HW1.html" rel="nofollow">HW1</a><br>
 <a href="https://feyzanursaka.github.io/Odevler/HW2/database.html" rel="nofollow">HW2</a><br>
