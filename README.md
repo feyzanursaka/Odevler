@@ -1,9 +1,9 @@
-# Odevler
-<h2>HOMEWORKS</h2>
+# Advanced Programming 
+<h4>HOMEWORKS</h4>
 <a href="https://feyzanursaka.github.io/Odevler/HW1.html" rel="nofollow">HW1</a><br>
 <a href="https://feyzanursaka.github.io/Odevler/HW2/database.html" rel="nofollow">HW2</a><br>
 <a href="https://feyzanursaka.github.io/Odevler/HW3.html" rel="nofollow">HW3</a><br>
-<h2>CLASS WORKS</h2>
+<h4>CLASS WORKS</h4>
 <a href="https://feyzanursaka.github.io/Odevler/work/inspector.html" rel="nofollow">CW3</a><br>
 <a href="https://feyzanursaka.github.io/Odevler/CW4.html" rel="nofollow">CW4</a><br>
 <a href="https://feyzanursaka.github.io/Odevler/CW5/CW5.html" rel="nofollow">CW5</a><br>
