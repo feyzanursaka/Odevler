@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Canvas </title>
+
+  <style>
+    canvas {
+        background: cyan;
+        font: 10px arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+<h2>Using Canvas</h2>
+<p>Canvas is an image drawn by JavaScript</p>
+<canvas id=canvas width=600 height=200></canvas>
+<pre id=sample></pre>
+
+
+
+<script>
+"use strict";
+function draw() {
+   document.getElementById("canvas").width=600;
+   document.getElementById("canvas").height=200;
+    cx.beginPath(); cx.lineWidth = 4;
+    cx.fillStyle = "yellow"; cx.strokeStyle = "blue";
+    cx.arc(60, 60, 40, 0, 2*Math.PI);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("arc",44,55);
+
+    cx.beginPath(); cx.lineWidth = 5;
+    cx.fillStyle = "pink"; cx.strokeStyle = "red";
+    cx.rect(400, 20, 100, 80);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("rect",445,55);
+}
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+function change_Color() {
+   document.getElementById("canvas").width=600;
+   document.getElementById("canvas").height=200;
+    cx.beginPath(); cx.lineWidth = 4;
+    cx.fillStyle = getRandomColor(); cx.strokeStyle = getRandomColor();
+    cx.arc(60, 60, 40, 0, 2*Math.PI);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = getRandomColor();
+    cx.fillText("arc",44,55);
+  
+
+    cx.beginPath(); cx.lineWidth = 5;
+    cx.fillStyle = getRandomColor(); cx.strokeStyle = getRandomColor();
+    cx.rect(400, 20, 100, 80);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = getRandomColor();
+    cx.fillText("rect",445,55);
+
+}
+function change_size() {
+   document.getElementById("canvas").width=600;
+   document.getElementById("canvas").height=200;
+    cx.beginPath(); cx.lineWidth = 4;
+    cx.fillStyle = "yellow"; cx.strokeStyle = "blue";
+    cx.arc(60, 60, Math.floor(Math.random() * 100), 0, 2*Math.PI);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("arc",44,55);
+
+
+    cx.beginPath(); cx.lineWidth = 5;
+    cx.fillStyle = "pink"; cx.strokeStyle = "red";
+    cx.rect(400,20 , Math.floor(Math.random() * 100), Math.floor(Math.random() * 100));
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("rect",445,55);
+
+}
+function change_Location() {
+   document.getElementById("canvas").width=600;
+   document.getElementById("canvas").height=200;
+    cx.beginPath(); cx.lineWidth = 4;
+    cx.fillStyle = "yellow"; cx.strokeStyle = "blue";
+    cx.arc(Math.floor(Math.random() * 400), Math.floor(Math.random() * 100), 40, 0, 2*Math.PI);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("arc",44,55);
+
+    cx.beginPath(); cx.lineWidth = 5;
+    cx.fillStyle = "pink"; cx.strokeStyle = "red";
+    cx.rect(Math.floor(Math.random() * 400), Math.floor(Math.random() * 100), 100, 80);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("rect",445,55);
+
+}
+function thick() {
+   document.getElementById("canvas").width=600;
+   document.getElementById("canvas").height=200;
+    cx.beginPath(); cx.lineWidth = Math.floor(Math.random() * 11);
+    cx.fillStyle = "yellow"; cx.strokeStyle = "blue";
+    cx.arc(60, 60, 40, 0, 2*Math.PI);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("arc",44,55);
+
+    cx.beginPath(); cx.lineWidth = Math.floor(Math.random() * 11);
+    cx.fillStyle = "pink"; cx.strokeStyle = "red";
+    cx.rect(400, 20, 100, 80);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = "black"; 
+    cx.fillText("rect",445,55);
+}
+function clean() {
+   document.getElementById("canvas").width=600;
+   document.getElementById("canvas").height=200;
+}
+    const cx = canvas.getContext("2d");
+    
+</script>
+<p><button onclick="draw()">draw</button>
+<p><button onclick="change_Color()">change color</button></p>
+<p><button onclick="change_size()">change size</button><p>
+<p><button onclick="change_Location()">change location</button></p>
+<p><button onclick="thick()">change thick</button>
+<p><button onclick="clean()">clean</button>
+<p id="innerText" onclick="doClick(event)" ></p><hr />
+
+<p>Ref: <i>Eloquent JavaScript</i>,
+<a href="http://eloquentjavascript.net/17_canvas.html" 
+   target="ExternalDocument"> Chap 17</a>
+</p>
+</body>
+</html>
