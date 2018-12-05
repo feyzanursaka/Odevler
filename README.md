@@ -1,6 +1,6 @@
 # Advanced Programming 
 <h4>HOMEWORKS</h4>
-<a href="https://feyzanursaka.github.io/Odevler/HW1.html" rel="nofollow">Array</a><br>" - HW1"
+<a href="https://feyzanursaka.github.io/Odevler/HW1.html" rel="nofollow">Array</a>" - HW1"<br>
 "HW2 - "<a href="https://feyzanursaka.github.io/Odevler/HW2/database.html" rel="nofollow">Read File</a><br>
 "HW3 - "<a href="https://feyzanursaka.github.io/Odevler/HW3.html" rel="nofollow">Animation</a><br>
 <h4>CLASS WORKS</h4>
