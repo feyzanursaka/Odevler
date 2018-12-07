@@ -9,13 +9,13 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" sizes="285x183" href="icons/F.jpg">
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker
-                .register('https://feyzanursaka.github.io/Odevler/sw.js')
-                .then((reg) => { console.log('SW Registered', reg) })
-                .catch(console.log)
-        }
-    </script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('sw.js')
+          .then((reg) => { console.log('SW Registered', reg) })
+          .catch(console.log)
+      }
+  </script>
     <style>
         body {
             margin: 0 auto;
