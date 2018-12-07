@@ -1,4 +1,3 @@
-
 const CACHE ='JS'
 function installCB(e) {
   console.log('install oldu', e.request);
