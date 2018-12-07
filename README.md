@@ -1,12 +1,12 @@
 # Advanced Programming 
-#HOMEWORKS
+# HOMEWORKS
 <ul>
   <li><a href="https://feyzanursaka.github.io/Odevler/HW1.html" rel="nofollow">Array</a> - HW1</li>
   <li><a href="https://feyzanursaka.github.io/Odevler/HW2/database.html" rel="nofollow">Read File</a> - HW2</li>
   <li><a href="https://feyzanursaka.github.io/Odevler/HW3.html" rel="nofollow">Animation</a> - HW3</li>
   <li><a href="https://feyzanursaka.github.io/Odevler/index.html" rel="nofollow">Classwork App</a> - HW4</li>
 </ul>
-#CLASS WORKS
+# CLASS WORKS
 <ul>
   <li><a href="https://feyzanursaka.github.io/Odevler/array.html" rel="nofollow">Array Methods</a> - CW2</li>
   <li><a href="https://feyzanursaka.github.io/Odevler/work/inspector.html" rel="nofollow">Objects</a> - CW3</li>
