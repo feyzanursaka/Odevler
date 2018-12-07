@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<!DOCTYPE html><html lang='en' class=''>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="theme-color" content="#8b8970" />
-    <meta name="author" content="Feyza Nur SAKA, Istanbul, 2018" />
-    <meta name="description" content="Advanced Programming" />
-    <title>JS Örnekleri </title>
-    <link rel="icon" sizes="285x183" href="F.png"> 
-    <link rel="manifest" href="manifest.json">
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('https://feyzanursaka.github.io/Odevler/jw.js')
-        .then((reg) => { console.log('SW Registered', reg.active) })
-        .catch(console.log)
-    }
+     <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('jw.js')
+          .then((reg) => { console.log('SW Registered', reg) })
+          .catch(console.log)
+      }
   </script>
+    <meta charset="utf-8">
+    <link rel="icon" sizes="285x183" href="F.png">
     <style>
         body {
             margin: 0 auto;
