@@ -6,7 +6,7 @@
   <li><a href="https://feyzanursaka.github.io/Odevler/HW3.html" rel="nofollow">Animation</a> - HW3</li>
   <li><a href="https://feyzanursaka.github.io/Odevler/index.html" rel="nofollow">Classwork App</a> - HW4</li>
 </ul>
-# CLASS WORKS
+# CLASSWORKS
 <ul>
   <li><a href="https://feyzanursaka.github.io/Odevler/array.html" rel="nofollow">Array Methods</a> - CW2</li>
   <li><a href="https://feyzanursaka.github.io/Odevler/work/inspector.html" rel="nofollow">Objects</a> - CW3</li>
