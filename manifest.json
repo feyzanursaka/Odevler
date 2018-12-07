@@ -5,7 +5,7 @@
   "background_color": "cyan",
   "icons": [
     {
-      "src": "F.jpg",
+      "src": "icn.png",
       "sizes": "285x183",
       "type": "image/jpg"
     }
