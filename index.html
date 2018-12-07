@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="theme-color" content="#457cdb">
-    <meta name="Description" content="Here is the Advanced Programming Classwork Application!">
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="pink" />
+    <meta name="author" content="Beyza Koşer, Istanbul, 2018" />
+    <meta name="description" content="Advanced Programming" />
+    <title>JS Örnekleri </title>
+    <link rel="icon" sizes="192x192" href="icon.png"> 
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" sizes="285x183" href="F.jpg">
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker
-                .register('https://feyzanursaka.github.io/Odevler/sw.js')
-                .then((reg) => { console.log('SW Registered', reg) })
-                .catch(console.log)
-        }
-    </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('https://beyzakoser.github.io/odevler/jw.js')
+        .then((reg) => { console.log('SW Registered', reg.active) })
+        .catch(console.log)
+    }
+  </script>
     <style>
         body {
             margin: 0 auto;
