@@ -1,8 +1,8 @@
 {
-  "name": "Advanced Programing",
+  "name": "Advanced PWA",
   "start_url": "/Odevler/index.html",
   "display": "standalone",
-  "background_color": "pink",
+  "background_color": "cyan",
   "icons": [
     {
       "src": "F.png",
@@ -11,4 +11,3 @@
     }
   ]
 }
-
