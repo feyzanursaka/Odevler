@@ -1,17 +1,14 @@
 {
-    "name": "Advanced Programing by Feyza Nur SAKA",
-    "description": "Here is the Advanced Programming Classwork Application!",
-    "short_name": "Odevler",
-    "start_url": "/Odevler/index.html",
-    "display": "standalone",
-    "background_color": "white",
-    "theme_color": "#457cdb",
-    "icons": [
-        {
-            "src": "icons/F.jpg",
-            "sizes": "275x183",
-            "type": "image/jpg"
-        }
-    ]
+  "name": "Advanced Programing",
+  "start_url": "/Odevler/index.html",
+  "display": "standalone",
+  "background_color": "pink",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "285x183",
+      "type": "image/png"
+    }
+  ]
 }
 
