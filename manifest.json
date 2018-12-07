@@ -1,13 +1,17 @@
 {
-  "name": "Advanced PWA",
-  "start_url": "/Odevler/index.html",
-  "display": "standalone",
-  "background_color": "purple",
-  "icons": [
-    {
-      "src": "icn.png",
-      "sizes": "2366x1182",
-      "type": "image/png"
-    }
-  ]
+    "name": "Adv Prog by Feyza Nur SAKA",
+    "description": "Here is the Advanced Programming Classwork Application!",
+    "short_name": "Odevler",
+    "start_url": "/Odevler/index.html",
+    "display": "standalone",
+    "background_color": "white",
+    "theme_color": "#457cdb",
+    "icons": [
+        {
+            "src": "icons/F.png",
+            "sizes": "900x520",
+            "type": "image/png"
+        }
+    ]
 }
+
