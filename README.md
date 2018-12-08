@@ -1,5 +1,5 @@
 # Advanced Programming 
-# HOMEWORKS
+<h3>HOMEWORKS</h3>
 <ul>
   <li><a href="https://feyzanursaka.github.io/Odevler/HW1.html" rel="nofollow">Array</a> - HW1</li>
   <li><a href="https://feyzanursaka.github.io/Odevler/HW2/database.html" rel="nofollow">Read File</a> - HW2</li>
@@ -7,7 +7,7 @@
   <li><a href="https://feyzanursaka.github.io/Odevler/index.html" rel="nofollow">Classwork App</a> - HW4</li>
 </ul>
 
-# CLASSWORKS
+<h3>CLASSWORKS</h3>
 
 <ul>
   <li><a href="https://feyzanursaka.github.io/Odevler/array.html" rel="nofollow">Array Methods</a> - CW2</li>
