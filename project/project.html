@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+
+
+body{
+	margin-top:150px;
+	margin-left:465px;
+}
+div#test{ 
+
+	background: #d2def2;
+	padding: 10px 20px 10px 20px;
+	width: 400px;
+	border-radius: 20px;
+	float: left;
+
+
+}
+
+</style>
+
+<script>
+"use strict";
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, trueAnswer, correct = 0;
+var questions = [];
+var qst;
+
+
+
+const url = "https://feyzanursaka.github.io/Odevler/questions.txt";
+function readData(){
+
+    fetch(url)
+        .then(txt=>txt.text())
+        .then(txt =>{
+    let a = txt.split("\n");
+	for(let i=0;i<a.length-1;i++){
+  
+    	let b = a[i].split("\t");
+    	question = b[0], chA = b[1], chB = b[2], chC=b[3], trueAnswer=b[4];
+   
+    	questions.push([question, chA, chB, chC, trueAnswer]);
+	}
+	renderQuestion();
+});
+ 
+}
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+		_("test_status").innerHTML = "Test Completed";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+			
+		}
+	}
+//  console.log(choice.startsWith(questions[pos][4].charAt(0)));
+	if(choice.startsWith(questions[pos][4].charAt(0))){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", readData, false);
+
+</script>
+</head>
+<body>
+	<h1>Knowledge Competition</h1>
+
+   
+	<div class="app-container">
+		<div class="anim" ></div>
+	</div>
+	<h2 id="test_status"></h2>
+	<div id="test"></div>
+
+
+
+</body>
+</html>
