@@ -18,5 +18,6 @@
   <li><a href="https://feyzanursaka.github.io/Odevler/CW7/index.html" rel="nofollow">Table</a> - CW7</li>
   <li><a href="https://feyzanursaka.github.io/Odevler/CW8.png" rel="nofollow">Read Cache</a> - CW8</li>
   <li><a href="https://feyzanursaka.github.io/Odevler/CW9.html" rel="nofollow">Using Canvas</a> - CW9</li>
+  <li><a href="https://feyzanursaka.github.io/Odevler/project/project.html" rel="nofollow">Project</a> - CW10</li>
 </ul>
 
