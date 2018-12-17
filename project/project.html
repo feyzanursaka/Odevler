@@ -2,35 +2,132 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+</head>
 <style>
 
 
+
 body{
-	margin-top:150px;
-	margin-left:465px;
+	font-family: 'Roboto Slab', serif;
+	background: #ff6666;
 }
-div#test{ 
 
-	background: #d2def2;
-	padding: 10px 20px 10px 20px;
-	width: 400px;
+
+
+div#test{
+	height: 550px;
+	width: 350px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	background: rgba(255, 179, 179);
+	padding: 20px;
+	border: 1px solid #08038C;
+	box-shadow: 0 0 8px 3px #fff;
+}
+
+
+.title{
+	padding-top: 20px;
+	text-align: center;
+	font-size: 36px;
+	text-transform: uppercase;
+	color: #800000;
+}
+
+.start{
+
+	font-size: 18px;
+	color: #000000;
+	width: 323px;
+	display: inline-block;
+	padding: 15px 0 0px 10px;
+	vertical-align: middle;
+	background: rgba(255, 230, 230);
+	margin: 10px 0 10px 5px;
 	border-radius: 20px;
-	float: left;
-
-
 }
 
+.question{
+	padding: 17px;
+	font-size: 19px;
+	background: #800000;
+	border-radius: 20px;
+	margin: 10px 0 10px 0;
+	color: #f6f6f6;
+}
+
+.option{
+	font-size: 16px;
+	width: 323px;
+	display: inline-block;
+	padding: 10px 0 10px 15px;
+	vertical-align: middle;
+	background: rgba(255, 230, 230);
+	margin: 10px 0 10px 5px;
+	color: #000000;
+	border-radius: 20px;
+}
+
+.option:hover{
+	background: #800000;
+	color: #f6f6f6;
+}
+
+.next-btn{
+	border: none;
+	outline: none;
+	background: rgba(255, 102, 102);
+	width: 100px;
+	height: 35px;
+	border-radius: 20px;
+	cursor: pointer;
+	float: right;
+	margin: 10px;
+}
+
+.next-btn:hover{
+	background: #800000;
+	color: #f6f6f6;
+}
+
+.container{
+	padding-top: 0px;
+	text-align: center;
+	font-size: 26px;
+	text-transform: uppercase;
+	color: #800000;
+}
+
+.cr{
+    font-size: 15px;
+    padding-top: 50px;
+	text-align: center;
+	width: 325px;
+	display: inline-block;
+	padding: 10px 10px 10px 10px;
+	vertical-align: middle;
+	background: rgba(255, 230, 230);
+	margin: 10px 0 10px 5px;
+	color: #000000;
+	border-radius: 20px;
+
+}
 </style>
 
 <script>
 "use strict";
-var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, trueAnswer, correct = 0;
+
+var pos = 0,start, test, test_status, question, choice, choices,isim, chA, chB, chC, chD, trueAnswer, correct=0, score = 0;
 var questions = [];
-var qst;
 
 
 
-const url = "https://feyzanursaka.github.io/Odevler/questions.txt";
+
+const url = "https://feyzanursaka.github.io/Odevler/q.txt";
 function readData(){
 
     fetch(url)
@@ -40,68 +137,152 @@ function readData(){
 	for(let i=0;i<a.length-1;i++){
   
     	let b = a[i].split("\t");
-    	question = b[0], chA = b[1], chB = b[2], chC=b[3], trueAnswer=b[4];
+    	question = b[0], chA = b[1], chB = b[2], chC=b[3], chD=b[4], trueAnswer=b[5];
    
-    	questions.push([question, chA, chB, chC, trueAnswer]);
+    	questions.push([question, chA, chB, chC, chD, trueAnswer]);
 	}
-	renderQuestion();
+	
+	startPage();
 });
  
 }
 function _(x){
 	return document.getElementById(x);
 }
+
 function renderQuestion(){
+
+
 	test = _("test");
+
 	if(pos >= questions.length){
-		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
-		_("test_status").innerHTML = "Test Completed";
+		  
+	
+        test.innerHTML ="<div class='title'>"+"Test Complated"+"</div><br>"
+		test.innerHTML += "<div class='cr'><h2>"+"You got "+correct+" of "+questions.length+" questions correct</h2></div>";
+		test.innerHTML += "<div class='cr'><h2>"+"Your score : "+score+"</h2></div>";
+	    if(correct>2){
+			test.innerHTML += "<div class='cr'><h2>"+"Congratulations Good Score :) "+"</h2></div>";
+		}
+		if(correct<=2){
+			test.innerHTML += "<div class='cr'><h2>"+"Try Again For Higher Score ! "+"</h2></div>";
+		}
+
 		pos = 0;
 		correct = 0;
+		score=0;
+        test.innerHTML += "<button id='nextButton' class='next-btn' onclick='startPage()'>Restart</button>";
 		return false;
-	}
-	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+		
+			
+	}	
+
+	restart();
+
+}
+function startPage(){
+test = _("test");
+
+	     test.innerHTML ="<div class='title'>"+"welcome to quiz show"+"</div><br><br>";
+		 test.innerHTML +="<div class='start'><u1><li>Each correct answer is +10 points </li><br></div>"
+		 test.innerHTML +="<div class='start'><li>Each wrong answer is -5 points </li><br></div>"
+		 test.innerHTML +="<div class='start'><li>Good Luck :) </li><br></div>"
+		 test.innerHTML +="<div class='start'><li>Click Button to Start </li></ul><br></div>"
+		 test.innerHTML += "<button id='nextButton' class='next-btn' onclick='renderQuestion()' onclick='pad()'>Start</button>";
+	
+}
+
+function restart(){
+
+	test.innerHTML = "Question "+(pos+1)+" of "+questions.length;
 	question = questions[pos][0];
+	
 	chA = questions[pos][1];
 	chB = questions[pos][2];
 	chC = questions[pos][3];
-	test.innerHTML = "<h3>"+question+"</h3>";
-	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
-	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
-	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
-	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+	chD = questions[pos][4];
+	
+	test.innerHTML +="<div id='quizContainer' class='container'>";
+	test.innerHTML +="<div class='title'>"+"quiz show"+"</div>";
 
+	test.innerHTML += "<div id='question' class='question'>"+question+"</div>";
+	test.innerHTML += "<label id='A' class='option'><input type='radio' name='choices' onchange='c()' value='A'/> "+chA+"<span id='opt1'></span></label><br>";
+	test.innerHTML += "<label id='B' class='option'><input type='radio' name='choices' onchange='c()' value='B'/> "+chB+"<span id='opt2'></span></label><br>";
+	test.innerHTML += "<label id='C' class='option'><input type='radio' name='choices' onchange='c()' value='C'/> "+chC+"<span id='opt3'></span></label><br>";
+	test.innerHTML += "<label id='D' class='option'><input type='radio' name='choices' onchange='c()' value='D'/> "+chD+"<span id='opt3'></span></label><br>";
+	
+	test.innerHTML += "<button id='nextButton' class='next-btn' onclick='checkAnswer()'>Submit Answer</button>";
+	
+	test.innerHTML +="</div>";
+	
 }
 function checkAnswer(){
 	choices = document.getElementsByName("choices");
 	for(var i=0; i<choices.length; i++){
 		if(choices[i].checked){
 			choice = choices[i].value;
+			if(choice.startsWith(questions[pos][5].charAt(0))){
+				correct++;
+				score+=10;
+
+			}else if(!choice.startsWith(questions[pos][5].charAt(0))){
+				score-=5;
+			}
+		}else if(!choices[i].checked){
+				score+=0;
+		}
+
+	}
+
+	pos++;
+    renderQuestion();
+
+}
+var t;
+function c(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+	
+	choice = choices[i].value;
+	if(choice.startsWith(questions[pos][5].charAt(0))){
+			t=choice;
 			
+			}
+	}
+	
+	for(var i=0; i<choices.length; i++){
+	
+	choice = choices[i].value;
+	
+		if(choices[i].checked){
+			if(choice.startsWith(questions[pos][5].charAt(0))){
+			
+				document.getElementById(choice).style.background='rgba(58, 219, 0, 1)';
+			    
+	
+			}
+			else if(!choice.startsWith(questions[pos][5].charAt(0))){
+				document.getElementById(choice).style.background='rgba(250, 0, 0, 1)';
+					document.getElementById(t).style.background='rgba(58, 219, 0, 1)';
+			}
+		}
+		else if(!choices[i].checked ){
+		
+		//document.getElementById(choice).disabled;
 		}
 	}
-//  console.log(choice.startsWith(questions[pos][4].charAt(0)));
-	if(choice.startsWith(questions[pos][4].charAt(0))){
-		correct++;
-	}
-	pos++;
-	renderQuestion();
+
+
 }
+
 window.addEventListener("load", readData, false);
 
 </script>
-</head>
+
 <body>
-	<h1>Knowledge Competition</h1>
 
-   
-	<div class="app-container">
-		<div class="anim" ></div>
-	</div>
-	<h2 id="test_status"></h2>
 	<div id="test"></div>
-
-
+	
 
 </body>
 </html>
