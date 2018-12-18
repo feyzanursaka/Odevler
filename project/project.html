@@ -3,6 +3,120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=0.85">
+<link rel="icon" href<link rel="icon" sizes="512x512" href="https://feyzanursaka.github.io/Odevler/project/project_icon.png" type="image/png" sizes="16x16">
+
+
+  <style>
+    .button {
+    color: purple;
+    font-weight: bold; 
+    width: auto;
+        }
+    .box{
+        width: 75px;
+        height: 75px;
+    }
+    #hangman {
+    background-image: url('images/hangman.png');
+    background-repeat: no-repeat;
+    width: 404px;
+    height: 512px;
+    border-color: black;
+        border-style: solid;
+        border-width: thin;
+    } 
+    #head {
+        margin-left: 200px;
+        margin-top: 135px;
+    }
+    #leftArm {
+        margin-left: 125px;
+        float: left;
+    }
+    #body {
+        float: left;
+    }
+    #rightArm {
+        float: left;
+    }
+    #leftLeg {
+        margin-left: 170px;
+        clear: left;
+        float: left;
+    }
+    #rightLeg {
+        float: left;
+    }
+    
+      </style>
+
+  
+
+<!--<script type="text/javascript">
+    
+</script>-->
+
+
+
+
+
+
+
+</head>
+
+<body>
+<body style="background-color:powderblue;">
+
+<h2 id="title" style="
+    color: purple;
+">Hangman</h2>
+
+
+
+<p>Word Type: 
+<output type=text id=out1 >
+</p>
+
+<p>Lives: 
+<output type=text id=out2 >
+</p>
+
+<p>Already guessed:
+<output type=text id=out3 >
+</p>
+
+
+<p>
+<input type=text id=harf >
+<button class="button" , onclick="out2.innerText=tryChange()">Try</button>
+</p>
+
+
+
+<div id="hangman" >
+    <div id="x"></div>
+    <div class="box" id="head"></div>
+    <div class="box" id="leftArm"></div>
+    <div class="box" id="body"></div>
+    <div class="box" id="rightArm"></div>
+    <div class="box" id="leftLeg"></div>
+    <div class="box" id="rightLeg"></div>
+</div>
+
+<script src="Database.js"></script>
+<script>
+c=new Database();
+</script>
+
+
+<script>
+    title.innerText = document.title;
+</script>
+
+</body>
+</html>
+
+
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 <style>
