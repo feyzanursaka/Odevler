@@ -1,6 +1,7 @@
 {
   "name": "Advanced PWA",
   "start_url": "/Odevler/index.html",
+  "start_url": "/Odevler/project/project.html",
   "display": "standalone",
   "background_color": "cyan",
   "icons": [
