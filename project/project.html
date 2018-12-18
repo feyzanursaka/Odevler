@@ -191,10 +191,10 @@ function renderQuestion(){
         test.innerHTML ="<div class='title'>"+"Test Complated"+"</div><br>"
 		test.innerHTML += "<div class='cr'><h2>"+"You got "+correct+" of "+questions.length+" questions correct</h2></div>";
 		test.innerHTML += "<div class='cr'><h2>"+"Your score : "+score+"</h2></div>";
-	    if(correct>2){
+	    if(correct>=5){
 			test.innerHTML += "<div class='cr'><h2>"+"Congratulations Good Score :) "+"</h2></div>";
 		}
-		if(correct<=2){
+		if(correct<5){
 			test.innerHTML += "<div class='cr'><h2>"+"Try Again For Higher Score ! "+"</h2></div>";
 		}
 
