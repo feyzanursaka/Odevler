@@ -31,11 +31,24 @@ div#test{
 
 
 .title{
-	padding-top: 20px;
+	padding: 65px 0 5px 10px;
 	text-align: center;
 	font-size: 36px;
 	text-transform: uppercase;
 	color: #800000;
+}
+.title2{
+	padding: 80px 0 5px 10px;
+	text-align: center;
+	font-size: 36px;
+	text-transform: uppercase;
+	color: #800000;
+}
+.indicator{
+	margin-left: 15px;
+	margin-top: 30px;
+	padding: 10px 0 0 10px;
+	float: left;
 }
 
 .start{
@@ -52,11 +65,12 @@ div#test{
 }
 
 .question{
+
 	padding: 20px;
 	font-size: 19px;
 	background: #800000;
 	border-radius: 20px;
-	margin: 10px 0 10px 0;
+	margin: 10px 0 15px 0;
 	color: #f6f6f6;
 }
 
@@ -89,6 +103,21 @@ div#test{
 	margin: 10px 18px 5px 10px;
 }
 
+.score{
+	margin-top: 30px;
+	margin-right: 15px;
+	padding: 10px 0 0 10px;
+	border: none;
+	outline: none;
+	background: rgba(255, 230, 230);
+	width: 90px;
+	height: 30px;
+	border-radius: 15px;
+	cursor: pointer;
+	float: right;
+	
+}
+
 .next-btn:hover{
 	background: #800000;
 	color: #f6f6f6;
@@ -103,6 +132,7 @@ div#test{
 }
 
 .cr{
+	
     font-size: 16px;
     padding-top: 50px;
 	text-align: center;
@@ -194,7 +224,8 @@ test = _("test");
 
 function restart(){
 
-	test.innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	test.innerHTML = "<div class='indicator'> Question " +(pos+1)+" of "+questions.length+"</div>";
+	test.innerHTML += "<div class='score'> Score =  " + score +"</div>";
 	question = questions[pos][0];
 	
 	chA = questions[pos][1];
@@ -203,7 +234,7 @@ function restart(){
 	chD = questions[pos][4];
 	
 	test.innerHTML +="<div id='quizContainer' class='container'>";
-	test.innerHTML +="<div class='title'>"+"quiz show"+"</div>";
+	test.innerHTML +="<div class='title2'>"+"quiz show"+"</div>";
 
 	test.innerHTML += "<div id='question' class='question'>"+question+"</div>";
 	test.innerHTML += "<label id='A' class='option'><input type='radio' name='choices' onchange='c()' value='A'/> "+chA+"<span id='opt1'></span></label><br>";
