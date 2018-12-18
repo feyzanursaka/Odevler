@@ -3,10 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="application-name" content="Quiz Show" />
+<link rel="manifest" href="manifest.json">
 <meta name="viewport" content="width=device-width, initial-scale=0.85">
-<link rel="icon" sizes="192x192" href="https://feyzanursaka.github.io/Odevler/project/project_icon.png">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+	    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('sw.js')
+          .then((reg) => { console.log('SW Registered', reg) })
+          .catch(console.log)
+      }
+  </script>
+<link rel="icon" sizes="192x192" href="https://feyzanursaka.github.io/Odevler/project/project_icon.png">
 </head>
+	
 <style>
 body{
 	font-family: 'Roboto Slab', serif;
