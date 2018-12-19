@@ -144,7 +144,7 @@ footer a{
 var pos = 0,start, test, test_status, question, choice, choices,isim, chA, chB, chC, chD, trueAnswer, correct=0, score = 0;
 var questions = [];
 const url = "https://feyzanursaka.github.io/Odevler/q.txt";
-function readData(){
+function readData(){//dosyadan okuma
     fetch(url)
         .then(txt=>txt.text())
         .then(txt =>{
@@ -165,7 +165,7 @@ function _(x){
 	return document.getElementById(x);
 }
 
-function renderQuestion(){
+function renderQuestion(){//result
 
 
 	test = _("test");
@@ -195,7 +195,7 @@ function renderQuestion(){
 	restart();
 
 }
-function startPage(){
+function startPage(){//başlangıç sayfası
 test = _("test");
 
 	     test.innerHTML ="<div class='title'>"+"welcome to quiz show"+"</div><br><br>";
@@ -207,7 +207,7 @@ test = _("test");
 	
 }
 
-function restart(){
+function restart(){//her çağrıldığında soru soran ekranı yükler
 
 	test.innerHTML = "<div class='indicator'> Question " +(pos+1)+" of "+questions.length+"</div>";
 	test.innerHTML += "<div class='score'> Score =  " + score +"</div>";
@@ -232,7 +232,7 @@ function restart(){
 	test.innerHTML +="</div>";
 	
 }
-function checkAnswer(){
+function checkAnswer(){//soruları kontrol eder
 	choices = document.getElementsByName("choices");
 	for(var i=0; i<choices.length; i++){
 		if(choices[i].checked){
@@ -259,7 +259,7 @@ function checkAnswer(){
 
 }
 var t;
-function c(){
+function c(){//seçenek doğruysa yeşil yanlışsa kırmızı gözükmesini sağlar
 	choices = document.getElementsByName("choices");
 	for(var i=0; i<choices.length; i++){
 	
