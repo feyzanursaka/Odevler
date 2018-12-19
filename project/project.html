@@ -234,7 +234,11 @@ function checkAnswer(){
 				score+=10;
 
 			}else if(!choice.startsWith(questions[pos][5].charAt(0))){
+				if(score==0){
+					continue;
+				}else{
 				score-=5;
+				}
 			}
 		}else if(!choices[i].checked){
 				score+=0;
