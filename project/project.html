@@ -142,9 +142,8 @@ footer a{
 "use strict";
 
 var pos = 0,start, test, test_status, question, choice, choices,isim, chA, chB, chC, chD, trueAnswer, correct=0, score = 0;
-var questions = [];
-var counter=0;
-var random;
+var questions = [];//dosyadan okunan sorular diziye atılır
+var random;//soruyu random olarak getirmek için kullanılır 
 const url = "https://feyzanursaka.github.io/Odevler/project/questions.txt";
 function readData(){//dosyadan okuma
     fetch(url)
@@ -152,29 +151,19 @@ function readData(){//dosyadan okuma
         .then(txt =>{
     let a = txt.split("\n");
 	for(let i=0;i<a.length-1;i++){
-  
-    	let b = a[i].split("\t");
+    	let b = a[i].split("\t");// "\t" ye göre dosyadaki soruları ve cevapları böler
     	question = b[0], chA = b[1], chB = b[2], chC=b[3], chD=b[4], trueAnswer=b[5];
-   
     	questions.push([question, chA, chB, chC, chD, trueAnswer]);
 	}
-	
 	startPage();
 });
- 
 }
 function _(x){
 	return document.getElementById(x);
 }
-
 function renderQuestion(){//result
-
-
 	test = _("test");
-
 	if(pos >= questions.length){
-		  
-		
         test.innerHTML ="<div class='title'>"+"Test Complated"+"</div><br>"
 		test.innerHTML += "<div class='cr'><h2>"+"You got "+correct+" of "+questions.length+" questions correct</h2></div>";
 		test.innerHTML += "<div class='cr'><h2>"+"Your score : "+score+"</h2></div>";
@@ -184,20 +173,14 @@ function renderQuestion(){//result
 		if(score<50){
 			test.innerHTML += "<div class='cr'><h2>"+"Try Again For Higher Score ! "+"</h2></div>";
 		}
-		
 		pos = 0;
 		correct = 0;
 		score=0;
         test.innerHTML += "<button id='nextButton' class='next-btn' onclick='startPage()'>Restart</button>";
-		return false;
-		
-			
-	}	
-
+		return false;	
+	}
 	restart();
-
 }
-
 function startPage(){//başlangıç sayfası
 test = _("test");
 array=[];
@@ -207,12 +190,11 @@ array=[];
 		 test.innerHTML +="<div class='start'><li>Good Luck :) </li><br></div>"
 		 test.innerHTML +="<div class='start'><li>Click Button to Start </li></ul><br></div>"
 		 test.innerHTML += "<button id='nextButton' class='next-btn' onclick='renderQuestion()' onclick='pad()'>Start</button>";
-	
 }
 var array=[];
 var r;
 var sonuc;
-function randomm() {
+function randomm() {//0-9 arasında rastgele sayı üretir (AYNI OLMAYAN)
 		r=Math.floor(Math.random() * 10);
 		if(!array.includes(r)){
 			array.push(r);sonuc=r;
@@ -220,96 +202,69 @@ function randomm() {
 		return sonuc;
 }
 function restart(){//her çağrıldığında soru soran ekranı yükler
- random=randomm();
-	
-		
-	
+	random=randomm();
 	test.innerHTML = "<div class='indicator'> Question " +(pos+1)+" of "+questions.length+"</div>";
 	test.innerHTML += "<div class='score'> Score =  " + score +"</div>";
-	question = questions[random][0];
-	
-	chA = questions[random][1];
-	chB = questions[random][2];
-	chC = questions[random][3];
-	chD = questions[random][4];
+	question = questions[random][0];//random seçilen soru
+	chA = questions[random][1];//A şıkkı
+	chB = questions[random][2];//B şıkkı
+	chC = questions[random][3];//C şıkkı
+	chD = questions[random][4];//D şıkkı
 	
 	test.innerHTML +="<div id='quizContainer' class='container'>";
 	test.innerHTML +="<div class='title2'>"+"quiz show"+"</div>";
-
 	test.innerHTML += "<div id='question' class='question'>"+(pos+1)+") "+question+"</div>";
-	test.innerHTML += "<label id='A' class='option'><input type='radio' name='choices' onchange='c()' value='A'/> "+chA+"<span id='opt1'></span></label><br>";
-	test.innerHTML += "<label id='B' class='option'><input type='radio' name='choices' onchange='c()' value='B'/> "+chB+"<span id='opt2'></span></label><br>";
-	test.innerHTML += "<label id='C' class='option'><input type='radio' name='choices' onchange='c()' value='C'/> "+chC+"<span id='opt3'></span></label><br>";
-	test.innerHTML += "<label id='D' class='option'><input type='radio' name='choices' onchange='c()' value='D'/> "+chD+"<span id='opt3'></span></label><br>";
-	
+	test.innerHTML += "<label id='A' class='option'><input type='radio' name='choices' onchange='green_red()' value='A'/> "+chA+"<span id='opt1'></span></label><br>";
+	test.innerHTML += "<label id='B' class='option'><input type='radio' name='choices' onchange='green_red()' value='B'/> "+chB+"<span id='opt2'></span></label><br>";
+	test.innerHTML += "<label id='C' class='option'><input type='radio' name='choices' onchange='green_red()' value='C'/> "+chC+"<span id='opt3'></span></label><br>";
+	test.innerHTML += "<label id='D' class='option'><input type='radio' name='choices' onchange='green_red()' value='D'/> "+chD+"<span id='opt3'></span></label><br>";
 	test.innerHTML += "<button id='nextButton' class='next-btn' onclick='checkAnswer()'>Submit Answer</button>";
-	
 	test.innerHTML +="</div>";
-	
 }
-function checkAnswer(){//soruları kontrol eder
+function checkAnswer(){//cevapları kontrol eder
 	choices = document.getElementsByName("choices");
 	for(var i=0; i<choices.length; i++){
-		if(choices[i].checked){
+		if(choices[i].checked){//eğer işaretlendiyse
 			choice = choices[i].value;
-			if(choice.startsWith(questions[random][5].charAt(0))){
-				correct++;
-				score+=10;
-
-			}else if(!choice.startsWith(questions[random][5].charAt(0))){
-				if(score==0){
+			if(choice.startsWith(questions[random][5].charAt(0))){//doğru cevap seçtiğimiz şıkkın value değerine eşitse
+				correct++;//doğru sayısını arttır
+				score+=10;//10 puan ekle
+			}else if(!choice.startsWith(questions[random][5].charAt(0))){//değilse
+				if(score==0){//puan 0 lanmışssa puanı eksiltme
 					continue;
-				}else{
+				}else{//puan sıfırlanmamışsa yanlış cevap için 5 puan azalt
 				score-=5;
 				}
 			}
-		}else if(!choices[i].checked){
+		}else if(!choices[i].checked){//cevap işaretlenmemişse puana dokunma
 				score+=0;
 		}
-
 	}
-	
-	pos++;
-    renderQuestion();
-
+	pos++;//Kaçıncı soru olduğunu belirtir. Her checkAnswer çağrıldığında arttır.
+    renderQuestion();//restart için yada sonucu ekrana yazdırmak için çağır
 }
 var t;
-function c(){//seçenek doğruysa yeşil yanlışsa kırmızı gözükmesini sağlar
+function green_red(){//seçenek doğruysa yeşil yanlışsa kırmızı gözükmesini sağlar
 	choices = document.getElementsByName("choices");
 	for(var i=0; i<choices.length; i++){
-	
 	choice = choices[i].value;
-	if(choice.startsWith(questions[random][5].charAt(0))){
-			t=choice;
-			
+	if(choice.startsWith(questions[random][5].charAt(0))){//cevap doğruysa
+			t=choice;	
 			}
 	}
-	
 	for(var i=0; i<choices.length; i++){
-	
-	choice = choices[i].value;
-	
+		choice = choices[i].value;
 		if(choices[i].checked){
-			if(choice.startsWith(questions[random][5].charAt(0))){
-			
-				document.getElementById(choice).style.background='rgba(58, 219, 0, 1)';
-			    
-	
+			if(choice.startsWith(questions[random][5].charAt(0))){//cevap doğruysa
+				document.getElementById(choice).style.background='rgba(58, 219, 0, 1)';//yeşil
 			}
-			else if(!choice.startsWith(questions[random][5].charAt(0))){
-				document.getElementById(choice).style.background='rgba(250, 0, 0, 1)';
-					document.getElementById(t).style.background='rgba(58, 219, 0, 1)';
+			else if(!choice.startsWith(questions[random][5].charAt(0))){//yanlışsa
+				document.getElementById(choice).style.background='rgba(250, 0, 0, 1)';//kırmızı
+				document.getElementById(t).style.background='rgba(58, 219, 0, 1)';//doğru cevabı yeşil yap
 			}
-		}
-		else if(!choices[i].checked ){
-		
-		//document.getElementById(choice).disabled;
 		}
 	}
-
-
 }
-
 window.addEventListener("load", readData, false);
 
 </script>
