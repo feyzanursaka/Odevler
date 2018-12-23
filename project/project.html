@@ -143,7 +143,9 @@ footer a{
 
 var pos = 0,start, test, test_status, question, choice, choices,isim, chA, chB, chC, chD, trueAnswer, correct=0, score = 0;
 var questions = [];
-const url = "https://feyzanursaka.github.io/Odevler/project/questions.txt";
+var counter=0;
+var random;
+const url = "https://feyzanursaka.github.io/Odevler/q.txt";
 function readData(){//dosyadan okuma
     fetch(url)
         .then(txt=>txt.text())
@@ -172,7 +174,7 @@ function renderQuestion(){//result
 
 	if(pos >= questions.length){
 		  
-	
+		
         test.innerHTML ="<div class='title'>"+"Test Complated"+"</div><br>"
 		test.innerHTML += "<div class='cr'><h2>"+"You got "+correct+" of "+questions.length+" questions correct</h2></div>";
 		test.innerHTML += "<div class='cr'><h2>"+"Your score : "+score+"</h2></div>";
@@ -182,7 +184,7 @@ function renderQuestion(){//result
 		if(score<50){
 			test.innerHTML += "<div class='cr'><h2>"+"Try Again For Higher Score ! "+"</h2></div>";
 		}
-
+		
 		pos = 0;
 		correct = 0;
 		score=0;
@@ -195,9 +197,10 @@ function renderQuestion(){//result
 	restart();
 
 }
+
 function startPage(){//başlangıç sayfası
 test = _("test");
-
+array=[];
 	     test.innerHTML ="<div class='title'>"+"welcome to quiz show"+"</div><br><br>";
 		 test.innerHTML +="<div class='start'><u1><li>Each correct answer is +10 points </li><br></div>"
 		 test.innerHTML +="<div class='start'><li>Each wrong answer is -5 points </li><br></div>"
@@ -206,22 +209,34 @@ test = _("test");
 		 test.innerHTML += "<button id='nextButton' class='next-btn' onclick='renderQuestion()' onclick='pad()'>Start</button>";
 	
 }
-
+var array=[];
+var r;
+var sonuc;
+function randomm() {
+		r=Math.floor(Math.random() * 10);
+		if(!array.includes(r)){
+			array.push(r);sonuc=r;
+		}else{randomm();}
+		return sonuc;
+}
 function restart(){//her çağrıldığında soru soran ekranı yükler
-
+ random=randomm();
+	
+		
+	
 	test.innerHTML = "<div class='indicator'> Question " +(pos+1)+" of "+questions.length+"</div>";
 	test.innerHTML += "<div class='score'> Score =  " + score +"</div>";
-	question = questions[pos][0];
+	question = questions[random][0];
 	
-	chA = questions[pos][1];
-	chB = questions[pos][2];
-	chC = questions[pos][3];
-	chD = questions[pos][4];
+	chA = questions[random][1];
+	chB = questions[random][2];
+	chC = questions[random][3];
+	chD = questions[random][4];
 	
 	test.innerHTML +="<div id='quizContainer' class='container'>";
 	test.innerHTML +="<div class='title2'>"+"quiz show"+"</div>";
 
-	test.innerHTML += "<div id='question' class='question'>"+question+"</div>";
+	test.innerHTML += "<div id='question' class='question'>"+(pos+1)+") "+question+"</div>";
 	test.innerHTML += "<label id='A' class='option'><input type='radio' name='choices' onchange='c()' value='A'/> "+chA+"<span id='opt1'></span></label><br>";
 	test.innerHTML += "<label id='B' class='option'><input type='radio' name='choices' onchange='c()' value='B'/> "+chB+"<span id='opt2'></span></label><br>";
 	test.innerHTML += "<label id='C' class='option'><input type='radio' name='choices' onchange='c()' value='C'/> "+chC+"<span id='opt3'></span></label><br>";
@@ -237,11 +252,11 @@ function checkAnswer(){//soruları kontrol eder
 	for(var i=0; i<choices.length; i++){
 		if(choices[i].checked){
 			choice = choices[i].value;
-			if(choice.startsWith(questions[pos][5].charAt(0))){
+			if(choice.startsWith(questions[random][5].charAt(0))){
 				correct++;
 				score+=10;
 
-			}else if(!choice.startsWith(questions[pos][5].charAt(0))){
+			}else if(!choice.startsWith(questions[random][5].charAt(0))){
 				if(score==0){
 					continue;
 				}else{
@@ -253,7 +268,7 @@ function checkAnswer(){//soruları kontrol eder
 		}
 
 	}
-
+	
 	pos++;
     renderQuestion();
 
@@ -264,7 +279,7 @@ function c(){//seçenek doğruysa yeşil yanlışsa kırmızı gözükmesini sa�
 	for(var i=0; i<choices.length; i++){
 	
 	choice = choices[i].value;
-	if(choice.startsWith(questions[pos][5].charAt(0))){
+	if(choice.startsWith(questions[random][5].charAt(0))){
 			t=choice;
 			
 			}
@@ -275,13 +290,13 @@ function c(){//seçenek doğruysa yeşil yanlışsa kırmızı gözükmesini sa�
 	choice = choices[i].value;
 	
 		if(choices[i].checked){
-			if(choice.startsWith(questions[pos][5].charAt(0))){
+			if(choice.startsWith(questions[random][5].charAt(0))){
 			
 				document.getElementById(choice).style.background='rgba(58, 219, 0, 1)';
 			    
 	
 			}
-			else if(!choice.startsWith(questions[pos][5].charAt(0))){
+			else if(!choice.startsWith(questions[random][5].charAt(0))){
 				document.getElementById(choice).style.background='rgba(250, 0, 0, 1)';
 					document.getElementById(t).style.background='rgba(58, 219, 0, 1)';
 			}
